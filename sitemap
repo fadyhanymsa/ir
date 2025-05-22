@@ -1,0 +1,22 @@
+// Crawling Sitemap
+digraph {
+	A [label="Amazon.com (Homepage)" fillcolor=lightblue shape=box style=filled]
+	B [label="Search Pages
+(e.g., ?k=smartphones)" shape=box]
+	C [label="Product Pages
+(e.g., /dp/B09G3HRMVP)" shape=box]
+	D [label="Wishlist Pages
+(e.g., /gp/wishlist)" shape=box]
+	E [label="Blocked Pages
+(Sign-in, Cart, Reviews)" fillcolor=lightcoral shape=box style=filled]
+	F [label="Extracted Data" shape=ellipse]
+	G [label="CSV Output" shape=note]
+	H [label="Dashboard Display" shape=component]
+	A -> B [label=crawl]
+	B -> C [label="follow links"]
+	A -> D [label=crawl]
+	A -> E [label="blocked by robots.txt"]
+	C -> F [label=extract]
+	F -> G [label=save]
+	G -> H [label="load into dashboard"]
+}
